@@ -963,6 +963,27 @@ img {
         border-width: 3px;
     }
 
+    /* Profile photo - 10% smaller on mobile */
+    .image-pop {
+        width: 315px;
+        height: 405px;
+    }
+
+    .image-pop .circle-bg {
+        width: 315px;
+        height: 315px;
+    }
+
+    .image-pop .circle-border {
+        width: 323px;
+        height: 323px;
+    }
+
+    .image-pop .img-container {
+        width: 315px;
+        height: 315px;
+    }
+
     .section-title {
         font-size: 1.5rem;
     }
