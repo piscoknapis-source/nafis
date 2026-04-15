@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="contoh_1/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <!-- Page Loader -->
@@ -39,9 +40,41 @@
         </div>
     </nav>
 
+    <style>
+        @keyframes floatEffect {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating-element {
+            animation: floatEffect 6s ease-in-out infinite;
+        }
+
+        /* Skala 10% lebih kecil pada handphone untuk Hero dan About agar tidak terpotong */
+        @media (max-width: 768px) {
+            #home .container, 
+            #about .container {
+                zoom: 0.9;
+            }
+            
+            /* Fallback untuk browser yang tidak mendukung zoom (misal Firefox lama) */
+            @-moz-document url-prefix() {
+                #home .container, 
+                #about .container {
+                    transform: scale(0.9);
+                    transform-origin: top center;
+                    width: 110%;
+                    margin-left: -5%;
+                }
+            }
+        }
+    </style>
+
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
+    <section id="home" class="hero" style="position: relative; overflow: hidden;">
+        <!-- Particle Background -->
+        <div id="particles-js" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 0;"></div>
+        <div class="container" style="position: relative; z-index: 1;">
             <div class="hero-content">
                 <p class="greeting">Hello, I'm</p>
                 <h1>John Doe</h1>
@@ -63,7 +96,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <div class="image-pop">
+                <div class="image-pop floating-element">
                     <div class="circle-border"></div>
                     <div class="circle-bg"></div>
                     <div class="img-container">
@@ -80,13 +113,13 @@
         <div class="container">
             <h2 class="section-title reveal">About <span>Me</span></h2>
             <div class="about-content">
-                <div class="about-image reveal-left">
+                <div class="about-image" data-aos="fade-up" data-aos-duration="1000">
                     <img src="https://via.placeholder.com/350x450/1a1a2e/f59e0b?text=About" alt="About Me">
                 </div>
-                <div class="about-text reveal-right">
-                    <h3>A Passionate Developer Based in Jakarta, Indonesia</h3>
-                    <p>I am a creative frontend developer with 5+ years of experience in building modern web applications. I specialize in creating responsive, user-friendly interfaces that combine beautiful design with clean code.</p>
-                    <p>My journey in web development started when I was in college, and since then I've worked with various clients from startups to established companies to bring their digital visions to life.</p>
+                <div class="about-text">
+                    <h3 data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">A Passionate Developer Based in Jakarta, Indonesia</h3>
+                    <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">I am a creative frontend developer with 5+ years of experience in building modern web applications. I specialize in creating responsive, user-friendly interfaces that combine beautiful design with clean code.</p>
+                    <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">My journey in web development started when I was in college, and since then I've worked with various clients from startups to established companies to bring their digital visions to life.</p>
                     <div class="about-stats">
                         <div class="stat reveal-scale stagger-1">
                             <h4>50+</h4>
@@ -112,31 +145,31 @@
         <div class="container">
             <h2 class="section-title reveal">My <span>Skills</span></h2>
             <div class="skills-grid">
-                <div class="skill-category reveal-scale stagger-1">
+                <div class="skill-category reveal-scale stagger-1" data-tilt data-tilt-glare data-tilt-max-glare="0.2" data-tilt-scale="1.05">
                     <div class="category-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3>Frontend Development</h3>
+                    <h3 data-aos="fade-up" data-aos-delay="150">Frontend Development</h3>
                     <div class="skill-items">
-                        <div class="skill-item reveal stagger-1">
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
                             <span>HTML/CSS</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 95%"></div>
                             </div>
                         </div>
-                        <div class="skill-item reveal stagger-2">
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
                             <span>JavaScript</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 90%"></div>
                             </div>
                         </div>
-                        <div class="skill-item reveal stagger-3">
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
                             <span>React.js</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 85%"></div>
                             </div>
                         </div>
-                        <div class="skill-item reveal stagger-4">
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
                             <span>Vue.js</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 80%"></div>
@@ -144,31 +177,31 @@
                         </div>
                     </div>
                 </div>
-                <div class="skill-category reveal-scale stagger-2">
+                <div class="skill-category reveal-scale stagger-2" data-tilt data-tilt-glare data-tilt-max-glare="0.2" data-tilt-scale="1.05">
                     <div class="category-icon">
                         <i class="fas fa-paint-brush"></i>
                     </div>
-                    <h3>UI/UX Design</h3>
+                    <h3 data-aos="fade-up" data-aos-delay="150">UI/UX Design</h3>
                     <div class="skill-items">
-                        <div class="skill-item reveal stagger-1">
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
                             <span>Figma</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 90%"></div>
                             </div>
                         </div>
-                        <div class="skill-item reveal stagger-2">
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
                             <span>Adobe XD</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 85%"></div>
                             </div>
                         </div>
-                        <div class="skill-item reveal stagger-3">
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
                             <span>Photoshop</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 75%"></div>
                             </div>
                         </div>
-                        <div class="skill-item reveal stagger-4">
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
                             <span>Illustrator</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 70%"></div>
@@ -176,31 +209,31 @@
                         </div>
                     </div>
                 </div>
-                <div class="skill-category reveal-scale stagger-3">
+                <div class="skill-category reveal-scale stagger-3" data-tilt data-tilt-glare data-tilt-max-glare="0.2" data-tilt-scale="1.05">
                     <div class="category-icon">
                         <i class="fas fa-server"></i>
                     </div>
-                    <h3>Backend Development</h3>
+                    <h3 data-aos="fade-up" data-aos-delay="150">Backend Development</h3>
                     <div class="skill-items">
-                        <div class="skill-item reveal stagger-1">
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
                             <span>Node.js</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 80%"></div>
                             </div>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
                             <span>Python</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 75%"></div>
                             </div>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
                             <span>PHP</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 70%"></div>
                             </div>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
                             <span>MySQL</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 85%"></div>
@@ -223,7 +256,7 @@
                 <button class="filter-btn" data-filter="ui">UI/UX</button>
             </div>
             <div class="projects-grid">
-                <div class="project-card reveal-scale stagger-1" data-category="web">
+                <div class="project-card reveal-scale stagger-1" data-category="web" data-tilt data-tilt-glare data-tilt-max-glare="0.3" data-tilt-scale="1.05">
                     <div class="project-image">
                         <img src="https://via.placeholder.com/400x250/1a1a2e/f59e0b?text=E-Commerce" alt="Project 1">
                         <div class="project-overlay">
@@ -241,7 +274,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card reveal-scale stagger-2" data-category="app">
+                <div class="project-card reveal-scale stagger-2" data-category="app" data-tilt data-tilt-glare data-tilt-max-glare="0.3" data-tilt-scale="1.05">
                     <div class="project-image">
                         <img src="https://via.placeholder.com/400x250/1a1a2e/f59e0b?text=Mobile+App" alt="Project 2">
                         <div class="project-overlay">
@@ -258,7 +291,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card reveal-scale stagger-3" data-category="ui">
+                <div class="project-card reveal-scale stagger-3" data-category="ui" data-tilt data-tilt-glare data-tilt-max-glare="0.3" data-tilt-scale="1.05">
                     <div class="project-image">
                         <img src="https://via.placeholder.com/400x250/1a1a2e/f59e0b?text=Dashboard" alt="Project 3">
                         <div class="project-overlay">
@@ -275,7 +308,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card reveal-scale stagger-4" data-category="web">
+                <div class="project-card reveal-scale stagger-4" data-category="web" data-tilt data-tilt-glare data-tilt-max-glare="0.3" data-tilt-scale="1.05">
                     <div class="project-image">
                         <img src="https://via.placeholder.com/400x250/1a1a2e/f59e0b?text=Portfolio" alt="Project 4">
                         <div class="project-overlay">
@@ -293,7 +326,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card reveal-scale stagger-5" data-category="app">
+                <div class="project-card reveal-scale stagger-5" data-category="app" data-tilt data-tilt-glare data-tilt-max-glare="0.3" data-tilt-scale="1.05">
                     <div class="project-image">
                         <img src="https://via.placeholder.com/400x250/1a1a2e/f59e0b?text=Chat+App" alt="Project 5">
                         <div class="project-overlay">
@@ -310,7 +343,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card" data-category="ui">
+                <div class="project-card" data-category="ui" data-tilt data-tilt-glare data-tilt-max-glare="0.3" data-tilt-scale="1.05">
                     <div class="project-image">
                         <img src="https://via.placeholder.com/400x250/1a1a2e/f59e0b?text=Banking+UI" alt="Project 6">
                         <div class="project-overlay">
@@ -337,10 +370,10 @@
             <h2 class="section-title">Contact <span>Me</span></h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Let's Work Together!</h3>
-                    <p>I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+                    <h3 data-aos="fade-up" data-aos-delay="100">Let's Work Together!</h3>
+                    <p data-aos="fade-up" data-aos-delay="200">I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
                     <div class="info-items">
-                        <div class="info-item">
+                        <div class="info-item" data-aos="fade-up" data-aos-delay="300">
                             <div class="info-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
@@ -349,7 +382,7 @@
                                 <p>johndoe@example.com</p>
                             </div>
                         </div>
-                        <div class="info-item">
+                        <div class="info-item" data-aos="fade-up" data-aos-delay="400">
                             <div class="info-icon">
                                 <i class="fas fa-phone"></i>
                             </div>
@@ -358,7 +391,7 @@
                                 <p>+62 812 3456 7890</p>
                             </div>
                         </div>
-                        <div class="info-item">
+                        <div class="info-item" data-aos="fade-up" data-aos-delay="500">
                             <div class="info-icon">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
@@ -401,6 +434,44 @@
         </div>
     </footer>
 
+    <!-- Interactive Animation Libraries -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Particles.js Initialization for Hero Section
+        if(document.getElementById('particles-js')) {
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": "#f59e0b" },
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.3, "random": false },
+                    "size": { "value": 3, "random": true },
+                    "line_linked": { "enable": true, "distance": 150, "color": "#f59e0b", "opacity": 0.2, "width": 1 },
+                    "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                    "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } }
+                },
+                "retina_detect": true
+            });
+            
+            // Adjust z-index of hero content dynamically just in case
+            document.querySelector('.hero .container').style.position = 'relative';
+            document.querySelector('.hero .container').style.zIndex = '1';
+        }
+
+        // AOS Initialization
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+    </script>
     <script src="contoh_1/script.js"></script>
 </body>
 </html>

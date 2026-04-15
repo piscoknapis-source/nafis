@@ -14,6 +14,7 @@
     --accent: #f59e0b;
     --accent-hover: #d97706;
     --border: #30363d;
+    --animation-speed: 1;
 }
 
 html {
@@ -53,10 +54,41 @@ img {
     text-align: center;
     margin-bottom: 3rem;
     font-weight: 700;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    transition: transform 0.8s ease;
+}
+
+.section-title.active::after {
+    transform: translateX(-50%) scaleX(1);
 }
 
 .section-title span {
     color: var(--accent);
+    display: inline-block;
+    animation: textShimmer 3s ease-in-out infinite;
+}
+
+@keyframes textShimmer {
+    0%, 100% { 
+        text-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+        filter: brightness(1);
+    }
+    50% { 
+        text-shadow: 0 0 20px rgba(245, 158, 11, 0.6), 0 0 30px rgba(245, 158, 11, 0.3);
+        filter: brightness(1.2);
+    }
 }
 
 .btn {
@@ -1372,7 +1404,7 @@ img {
 
 .hero-image {
     opacity: 0;
-    animation: heroImageEntrance 1s ease-out 0.5s forwards;
+    animation: fadeInUp 1s ease-out 0.5s forwards;
 }
 
 @keyframes fadeInUp {
