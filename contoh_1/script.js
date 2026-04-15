@@ -197,11 +197,54 @@ if (heroSubtitle) {
             heroSubtitle.textContent += text.charAt(i);
             i++;
             setTimeout(typeWriter, 50);
+        } else {
+            // Add class to remove blinking cursor after typing completes
+            heroSubtitle.classList.add('typed-complete');
         }
     };
 
     // Start typing effect when page loads
     setTimeout(typeWriter, 1000);
+}
+
+// Cursor-follow glow effect on hero image
+const imagePop = document.querySelector('.image-pop');
+if (imagePop) {
+    imagePop.addEventListener('mousemove', (e) => {
+        const rect = imagePop.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        imagePop.style.setProperty('--glow-x', `${x}px`);
+        imagePop.style.setProperty('--glow-y', `${y}px`);
+        
+        const afterElement = imagePop.querySelector('::after');
+        imagePop.style.cssText += `
+            --glow-x: ${x}px;
+            --glow-y: ${y}px;
+        `;
+    });
+}
+
+// Enhanced cursor follow effect using JS
+if (imagePop) {
+    const style = document.createElement('style');
+    style.textContent = `
+        .image-pop::after {
+            left: var(--glow-x, 50%);
+            top: var(--glow-y, 50%);
+        }
+    `;
+    document.head.appendChild(style);
+    
+    imagePop.addEventListener('mousemove', (e) => {
+        const rect = imagePop.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        imagePop.style.setProperty('--glow-x', x + 'px');
+        imagePop.style.setProperty('--glow-y', y + 'px');
+    });
 }
 
 // Add fade-in animation keyframes
@@ -219,6 +262,27 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// ===== SCROLL REVEAL ANIMATIONS =====
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+};
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, observerOptions);
+
+// Observe all elements with reveal classes
+document.addEventListener('DOMContentLoaded', () => {
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-rotate');
+    revealElements.forEach(el => revealObserver.observe(el));
+});
 
 // Touch-friendly interactions for mobile
 if ('ontouchstart' in window) {

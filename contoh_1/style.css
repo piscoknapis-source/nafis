@@ -672,6 +672,70 @@ img {
     color: var(--text-secondary);
 }
 
+/* ===== SCROLL REVEAL ANIMATIONS ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-80px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(80px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.reveal-rotate {
+    opacity: 0;
+    transform: rotate(-5deg) translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-rotate.active {
+    opacity: 1;
+    transform: rotate(0) translateY(0);
+}
+
+/* Stagger delay for child elements */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+.stagger-6 { transition-delay: 0.6s; }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
     .hero .container {
@@ -1259,6 +1323,307 @@ img {
     }
 }
 
+/* ===== NAVBAR ENTRANCE ANIMATION ===== */
+.navbar {
+    animation: navSlideDown 0.8s ease-out;
+}
+
+@keyframes navSlideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===== HERO ENTRANCE ANIMATIONS ===== */
+.hero .greeting {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
+.hero h1 {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.4s forwards;
+}
+
+.hero h2 {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.6s forwards;
+}
+
+.hero .description {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.8s forwards;
+}
+
+.hero-buttons {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 1s forwards;
+}
+
+.hero .social-links {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 1.2s forwards;
+}
+
+.hero-image {
+    opacity: 0;
+    animation: heroImageEntrance 1s ease-out 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroImageEntrance {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-10deg);
+    }
+    60% {
+        transform: scale(1.05) rotate(2deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* ===== FLOATING PARTICLES BACKGROUND ===== */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.15), transparent 70%);
+    border-radius: 50%;
+    top: 10%;
+    left: 10%;
+    animation: floatParticle 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.1), transparent 70%);
+    border-radius: 50%;
+    bottom: 20%;
+    right: 15%;
+    animation: floatParticle 6s ease-in-out infinite reverse;
+    pointer-events: none;
+}
+
+@keyframes floatParticle {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+    50% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+    75% {
+        transform: translate(20px, 30px) scale(1.05);
+    }
+}
+
+/* ===== IMAGE POP ANIMATION ENHANCEMENTS ===== */
+.image-pop::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.2), transparent 70%);
+    border-radius: 50%;
+    animation: pulse 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+/* ===== BUTTON PULSE ANIMATION ===== */
+.btn-primary {
+    position: relative;
+    animation: buttonPulse 2s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 0 15px rgba(245, 158, 11, 0);
+    }
+}
+
+.hero-buttons .btn-secondary {
+    animation: buttonPulseSecondary 2s ease-in-out infinite 0.5s;
+}
+
+@keyframes buttonPulseSecondary {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 0 12px rgba(245, 158, 11, 0);
+    }
+}
+
+/* ===== SOCIAL LINKS STAGGERED ANIMATION ===== */
+.social-links a {
+    opacity: 0;
+    animation: socialPop 0.5s ease-out forwards;
+}
+
+.social-links a:nth-child(1) { animation-delay: 1.3s; }
+.social-links a:nth-child(2) { animation-delay: 1.4s; }
+.social-links a:nth-child(3) { animation-delay: 1.5s; }
+.social-links a:nth-child(4) { animation-delay: 1.6s; }
+
+@keyframes socialPop {
+    from {
+        opacity: 0;
+        transform: scale(0) rotate(-180deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* ===== SCROLL INDICATOR ===== */
+.hero {
+    position: relative;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 2s forwards;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.scroll-indicator span {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.scroll-mouse {
+    width: 26px;
+    height: 40px;
+    border: 2px solid var(--accent);
+    border-radius: 15px;
+    position: relative;
+}
+
+.scroll-mouse::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 2px;
+    animation: scrollDown 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollDown {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(15px);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ===== TYPING CURSOR EFFECT ===== */
+.hero h2::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+    color: var(--accent);
+    margin-left: 2px;
+}
+
+.hero h2.typed-complete::after {
+    animation: none;
+    opacity: 0;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* ===== CURSOR FOLLOW GLOW EFFECT ===== */
+.image-pop::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.4), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 4;
+    transform: translate(-50%, -50%);
+}
+
+.image-pop:hover::after {
+    opacity: 1;
+}
+
 /* ===== BACK TO TOP BUTTON ===== */
 .back-to-top {
     position: fixed;
@@ -1297,5 +1662,16 @@ img {
         right: 20px;
         width: 45px;
         height: 45px;
+    }
+    
+    /* Hide scroll indicator on mobile */
+    .scroll-indicator {
+        display: none;
+    }
+    
+    /* Disable continuous pulse on mobile for better UX */
+    .btn-primary,
+    .hero-buttons .btn-secondary {
+        animation: none;
     }
 }

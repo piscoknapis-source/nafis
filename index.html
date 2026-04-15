@@ -57,6 +57,10 @@
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-dribbble"></i></a>
                 </div>
+                <div class="scroll-indicator" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
+                    <div class="scroll-mouse"></div>
+                    <span>Scroll Down</span>
+                </div>
             </div>
             <div class="hero-image">
                 <div class="image-pop">
@@ -74,30 +78,30 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About <span>Me</span></h2>
+            <h2 class="section-title reveal">About <span>Me</span></h2>
             <div class="about-content">
-                <div class="about-image">
+                <div class="about-image reveal-left">
                     <img src="https://via.placeholder.com/350x450/1a1a2e/f59e0b?text=About" alt="About Me">
                 </div>
-                <div class="about-text">
+                <div class="about-text reveal-right">
                     <h3>A Passionate Developer Based in Jakarta, Indonesia</h3>
                     <p>I am a creative frontend developer with 5+ years of experience in building modern web applications. I specialize in creating responsive, user-friendly interfaces that combine beautiful design with clean code.</p>
                     <p>My journey in web development started when I was in college, and since then I've worked with various clients from startups to established companies to bring their digital visions to life.</p>
                     <div class="about-stats">
-                        <div class="stat">
+                        <div class="stat reveal-scale stagger-1">
                             <h4>50+</h4>
                             <p>Projects Completed</p>
                         </div>
-                        <div class="stat">
+                        <div class="stat reveal-scale stagger-2">
                             <h4>30+</h4>
                             <p>Happy Clients</p>
                         </div>
-                        <div class="stat">
+                        <div class="stat reveal-scale stagger-3">
                             <h4>5+</h4>
                             <p>Years Experience</p>
                         </div>
                     </div>
-                    <a href="#" class="btn btn-primary">Download CV</a>
+                    <a href="#" class="btn btn-primary reveal">Download CV</a>
                 </div>
             </div>
         </div>
@@ -106,33 +110,33 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">My <span>Skills</span></h2>
+            <h2 class="section-title reveal">My <span>Skills</span></h2>
             <div class="skills-grid">
-                <div class="skill-category">
+                <div class="skill-category reveal-scale stagger-1">
                     <div class="category-icon">
                         <i class="fas fa-code"></i>
                     </div>
                     <h3>Frontend Development</h3>
                     <div class="skill-items">
-                        <div class="skill-item">
+                        <div class="skill-item reveal stagger-1">
                             <span>HTML/CSS</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 95%"></div>
                             </div>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item reveal stagger-2">
                             <span>JavaScript</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 90%"></div>
                             </div>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item reveal stagger-3">
                             <span>React.js</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 85%"></div>
                             </div>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item reveal stagger-4">
                             <span>Vue.js</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 80%"></div>
@@ -140,31 +144,31 @@
                         </div>
                     </div>
                 </div>
-                <div class="skill-category">
+                <div class="skill-category reveal-scale stagger-2">
                     <div class="category-icon">
                         <i class="fas fa-paint-brush"></i>
                     </div>
                     <h3>UI/UX Design</h3>
                     <div class="skill-items">
-                        <div class="skill-item">
+                        <div class="skill-item reveal stagger-1">
                             <span>Figma</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 90%"></div>
                             </div>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item reveal stagger-2">
                             <span>Adobe XD</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 85%"></div>
                             </div>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item reveal stagger-3">
                             <span>Photoshop</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 75%"></div>
                             </div>
                         </div>
-                        <div class="skill-item">
+                        <div class="skill-item reveal stagger-4">
                             <span>Illustrator</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 70%"></div>
@@ -172,13 +176,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="skill-category">
+                <div class="skill-category reveal-scale stagger-3">
                     <div class="category-icon">
                         <i class="fas fa-server"></i>
                     </div>
                     <h3>Backend Development</h3>
                     <div class="skill-items">
-                        <div class="skill-item">
+                        <div class="skill-item reveal stagger-1">
                             <span>Node.js</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 80%"></div>
@@ -211,15 +215,15 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">My <span>Projects</span></h2>
-            <div class="projects-filter">
+            <h2 class="section-title reveal">My <span>Projects</span></h2>
+            <div class="projects-filter reveal">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="web">Web Design</button>
                 <button class="filter-btn" data-filter="app">App Design</button>
                 <button class="filter-btn" data-filter="ui">UI/UX</button>
             </div>
             <div class="projects-grid">
-                <div class="project-card" data-category="web">
+                <div class="project-card reveal-scale stagger-1" data-category="web">
                     <div class="project-image">
                         <img src="https://via.placeholder.com/400x250/1a1a2e/f59e0b?text=E-Commerce" alt="Project 1">
                         <div class="project-overlay">
@@ -237,7 +241,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card" data-category="app">
+                <div class="project-card reveal-scale stagger-2" data-category="app">
                     <div class="project-image">
                         <img src="https://via.placeholder.com/400x250/1a1a2e/f59e0b?text=Mobile+App" alt="Project 2">
                         <div class="project-overlay">
@@ -254,7 +258,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card" data-category="ui">
+                <div class="project-card reveal-scale stagger-3" data-category="ui">
                     <div class="project-image">
                         <img src="https://via.placeholder.com/400x250/1a1a2e/f59e0b?text=Dashboard" alt="Project 3">
                         <div class="project-overlay">
@@ -271,7 +275,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card" data-category="web">
+                <div class="project-card reveal-scale stagger-4" data-category="web">
                     <div class="project-image">
                         <img src="https://via.placeholder.com/400x250/1a1a2e/f59e0b?text=Portfolio" alt="Project 4">
                         <div class="project-overlay">
@@ -289,7 +293,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card" data-category="app">
+                <div class="project-card reveal-scale stagger-5" data-category="app">
                     <div class="project-image">
                         <img src="https://via.placeholder.com/400x250/1a1a2e/f59e0b?text=Chat+App" alt="Project 5">
                         <div class="project-overlay">
